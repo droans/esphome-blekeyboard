@@ -1,10 +1,6 @@
 blekeyboard/
-bin
-lib
-include
 .DS_Store
 __pycache__
 .mypy_cache
 .esphome
-.idea
 components/ble_keyboard/__pycache__
