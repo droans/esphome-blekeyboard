@@ -75,7 +75,7 @@ ble_keyboard.print:
 ```
 
 * **id** (Required, string): Component ID;
-* **text** (Required, string): The text to be printed. Supports lambda.
+* **text** (Required, string): The text to be printed.
 
 #### ble_keyboard.press
 
@@ -87,17 +87,8 @@ ble_keyboard.press:
   code: 0x80
 ```
 
-For media keys:
-```yaml
-ble_keyboard.press:
-  id: my_ble_keyboard 
-  code:
-    - 0
-    - 1
-```
-
 * **id** (Required, string): Component ID;
-* **code** (Required, int|list[int]): [Key code](https://github.com/dmamontov/esphome-blekeyboard/wiki/Keys). Supports lambda for int only.
+* **code** (Required, int): [Key code](https://github.com/dmamontov/esphome-blekeyboard/wiki/Keys).
 
 #### ble_keyboard.release
 
@@ -121,5 +112,5 @@ ble_keyboard.combination:
 ```
 
 * **id** (Required, string): Component ID;
-* **delay** (Required, int): Delay between clicks. Supports lambda;
-* **keys** (Required, list[int, string]): [Key list](https://github.com/dmamontov/esphome-blekeyboard/wiki/Keys). Doesn't support lambda.
+* **delay** (Required, int): Delay between clicks;
+* **keys** (Required, list[int, string]): Key list.

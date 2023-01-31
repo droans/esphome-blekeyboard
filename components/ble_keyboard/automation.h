@@ -25,20 +25,9 @@ template<typename... Ts> class Esp32BleKeyboardPressAction : public Action<Ts...
   explicit Esp32BleKeyboardPressAction(Esp32BleKeyboard *ble_keyboard) : ble_keyboard_(ble_keyboard) {}
   TEMPLATABLE_VALUE(uint8_t, code)
 
-  void play(Ts... x) override {
-    if (keys_.size() > 1) {
-      MediaKeyReport mediaKey = {keys_[0], keys_[1]};
-
-      this->ble_keyboard_->press(mediaKey);
-    } else {
-      this->ble_keyboard_->press(this->code_.value(x...));
-    }
-  }
-
-  void set_keys(const std::vector<uint8_t> &keys) { keys_ = keys; }
+  void play(Ts... x) override { this->ble_keyboard_->press(this->code_.value(x...)); }
 
  protected:
-  std::vector<uint8_t> keys_;
   Esp32BleKeyboard *ble_keyboard_;
 };
 
